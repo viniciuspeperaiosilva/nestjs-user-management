@@ -1,15 +1,15 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { User } from './user.entity';
 
 @Controller('users')
 export class UsersController {
+  userRepository: any;
   constructor(private readonly usersService: UsersService) {}
 
   @Post()
-  async create(
-    @Body() body: { name: string; email: string; password: string },
-  ): Promise<User> {
-    return this.usersService.create(body.name, body.email, body.password);
+  create(user: User): User {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+    return this.userRepository.save(user);
   }
 }

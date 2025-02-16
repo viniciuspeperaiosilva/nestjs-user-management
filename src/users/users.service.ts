@@ -1,30 +1,23 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { User } from './user.entity';
-import * as bcrypt from 'bcrypt';
+import { User } from './user.entity'; // Ajuste o caminho conforme necessário
 
-@Injectable()
+@Injectable() // Decorador que marca a classe como um serviço injetável
 export class UsersService {
-  findOne() {
-    throw new Error('Method not implemented.');
-  }
   constructor(
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    @InjectRepository(User) // Decorador aplicado ao parâmetro do construtor
+    private readonly userRepository: Repository<User>, // Propriedade que armazena o repositório
   ) {}
 
-  async create(name: string, email: string, password: string): Promise<User> {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const user = this.usersRepository.create({
-      name,
-      email,
-      password: hashedPassword,
-    });
-    return this.usersRepository.save(user);
+  async findAll(): Promise<User[]> {
+    return this.userRepository.find();
   }
 
+  async create(user: User): Promise<User> {
+    return this.userRepository.save(user);
+  }
   async findByEmail(email: string): Promise<User | null> {
-    return this.usersRepository.findOne({ where: { email } });
+    return (await this.userRepository.findOne({ where: { email } })) || null;
   }
 }
