@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var testing_1 = require("@nestjs/testing");
 var request = require("supertest");
-var app_module_1 = require("./../src/app.module");
+var app_module_1 = require("../src/modules/app.module");
 describe('AppController (e2e)', function () {
     var app;
     beforeEach(function () { return __awaiter(void 0, void 0, void 0, function () {

@@ -6,8 +6,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "outDir": "./dist",  // Diretório de saída para os arquivos .js
+    "rootDir": "./src",  // Diretório raiz dos arquivos .ts
     "types": ["jest"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
