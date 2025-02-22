@@ -12,6 +12,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "dist/dtos/sign-in.dto.js"],
   "exclude": ["node_modules", "dist"]
 }

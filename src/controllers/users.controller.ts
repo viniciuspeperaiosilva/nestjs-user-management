@@ -9,7 +9,7 @@ export class UserController {
 
   @Post()
   async create(@Body() createUserDto: CreateUserDto): Promise<User> {
-    return await this.userService.create(createUserDto);
+    return this.userService.create(createUserDto);
   }
 
   @Get()
@@ -19,6 +19,14 @@ export class UserController {
 
   @Get(':id')
   async findOne(@Param('id') id: string): Promise<User> {
-    return await this.userService.findOne(id);
+    return this.userService.findOne(id);
+  }
+
+  @Get('name/:firstName/:lastName')
+  async findByName(
+    @Param('firstName') firstName: string,
+    @Param('lastName') lastName: string,
+  ): Promise<User[]> {
+    return this.userService.findByName(firstName, lastName);
   }
 }
