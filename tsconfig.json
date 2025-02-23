@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2017",
+    "target": "ES6",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
@@ -12,6 +12,6 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "include": ["src/**/*", "dist/dtos/sign-in.dto.js"],
+  "include": ["src/**/*", "dist/dtos/sign-in.dto.js", "tsconfig.json"],
   "exclude": ["node_modules", "dist"]
 }
